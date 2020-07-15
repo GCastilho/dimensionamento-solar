@@ -1,6 +1,16 @@
 <script>
 	import { onDestroy } from 'svelte'
-	import { estado, cidade } from '../stores/dimensionamento'
+	import { writable } from 'svelte/store'
+	import * as dimensionamento from '../stores/dimensionamento'
+
+	/** Store para mediar o set da cidade */
+	const cidade = writable('')
+	cidade.subscribe(id => id && id != $dimensionamento.cidade && dimensionamento.setCidade(id))
+
+	/** Store para mediar atualizações do estado */
+	const estado = writable(0)
+	estado.subscribe(id => id && id != $dimensionamento.estado && dimensionamento.setEstado(id))
+	$: estado.set($dimensionamento.estado)
 
 	async function fetchMunicipios(id) {
 		$cidade = ''
@@ -8,11 +18,8 @@
 		return await res.json()
 	}
 
-	let lista_cidade
-	const unsubscribe = estado.subscribe(v => {
-		lista_cidade = fetchMunicipios(v.id)
-	})
-	onDestroy(unsubscribe)
+	/** Array da lista de cidades retornadas do IBGE */
+	$: lista_cidade = fetchMunicipios($estado)
 </script>
 
 <style>
@@ -45,7 +52,7 @@
 
 <h2>Muito bem. Agora precisamos saber o nome da sua cidade</h2>
 <select bind:value="{$cidade}">
-	<option value="">Selecione</option>
+	<option value="">Cidade</option>
 	{#await lista_cidade}
 		<option value="">buscando...</option>
 	{:then municipios}

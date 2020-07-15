@@ -1,7 +1,7 @@
 <script>
 	import { fade } from 'svelte/transition'
 	import dadosCliente from './stores/cliente'
-	import { estado, cidade, concessionaria, preco } from './stores/dimensionamento'
+	import * as dimensionamento from './stores/dimensionamento'
 	import Mapa from './components/mapa.svelte'
 	import SeletorCidade from './components/SeletorCidade.svelte'
 	import SeletorConcessionaria from './components/SeletorConcessionaria.svelte'
@@ -28,30 +28,30 @@
 <div class="container" use:centerInScreen>
 	<div use:scrollIntoView>
 		<h1>Olá! Bem-vindo(a) ao simulador do Canal Solar</h1>
-		<p>Nós vamos te ajudar a economizar na sua conta de energia. Nossa ferramenta gratuita vai analisar sua conta de energia e dimensionar o sistema de energia solar ideal para sua residência</p>
-		<h2 style="margin-top: 30px;">Em qual estado você mora?</h2>
-		<Mapa on:click="{event => estado.set(event.detail)}" />
+		<p>Nós vamos te ajudar a economizar na sua conta de energia. Nossa ferramenta gratuita vai analisar sua conta de energia e dimensionar o sistema de energia solar ideal para você.</p>
+		<h2 style="margin-top: 30px;">Qual o seu estado?</h2>
+		<Mapa on:click="{event => dimensionamento.setEstado(event.detail.id)}" />
 	</div>
 
-	{#if $estado.id}
+	{#if $dimensionamento.estado}
 		<div in:fade use:scrollIntoView>
 			<SeletorCidade />
 		</div>
 	{/if}
 
-	{#if $cidade}
+	{#if $dimensionamento.cidade}
 		<div in:fade use:scrollIntoView>
 			<SeletorConcessionaria />
 		</div>
 	{/if}
 
-	{#if $concessionaria}
+	{#if $dimensionamento.concessionaria}
 		<div in:fade use:scrollIntoView>
 			<SeletorPreco />
 		</div>
 	{/if}
 
-	{#if $preco}
+	{#if $dimensionamento.preco}
 		<div in:fade="{{delay: 100}}" use:scrollIntoView>
 			<FormDadosCliente />
 		</div>

@@ -1,9 +1,9 @@
 <script>
-	import { concessionaria } from '../stores/dimensionamento'
+	import * as dimensionamento from '../stores/dimensionamento'
 	import FancyInput from './FancyInput.svelte'
 
 	function setConcessionaria(event) {
-		$concessionaria = event.target.concessionaria.value || 'não sei'
+		dimensionamento.setConcessionaria(event.target.concessionaria.value || 'não sei')
 	}
 </script>
 
