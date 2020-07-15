@@ -4,7 +4,7 @@
 	import * as dimensionamento from '../stores/dimensionamento'
 
 	/** Store para mediar o set da cidade */
-	const cidade = writable('')
+	const cidade = writable(0)
 	cidade.subscribe(id => id && id != $dimensionamento.cidade && dimensionamento.setCidade(id))
 
 	/** Store para mediar atualizações do estado */

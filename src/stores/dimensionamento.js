@@ -1,4 +1,5 @@
 import { writable } from 'svelte/store'
+import { next } from './slide'
 
 const { subscribe, update } = writable({})
 
@@ -39,4 +40,6 @@ export function setPreco(preco) {
 
 subscribe(v => {
 	console.log('store updated:', v)
+	if (JSON.stringify(v) == '{}') return
+	next()
 })
