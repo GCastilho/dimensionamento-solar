@@ -1,5 +1,6 @@
 <script>
 	import cliente from '../stores/cliente'
+	import { next } from '../stores/slide'
 	import FancyInput from './FancyInput.svelte'
 
 	function handleSubmit(event) {
@@ -8,6 +9,7 @@
 			email: event.target.email.value,
 			telefone: event.target.telefone.value
 		}
+		next()
 	}
 </script>
 

@@ -12,9 +12,9 @@
 	estado.subscribe(id => id && id != $dimensionamento.estado && dimensionamento.setEstado(id))
 	$: estado.set($dimensionamento.estado)
 
-	async function fetchMunicipios(id) {
+	async function fetchMunicipios(estado_id) {
 		$cidade = ''
-		const res = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${id}/municipios`)
+		const res = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${estado_id}/municipios`)
 		return await res.json()
 	}
 
