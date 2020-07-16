@@ -1,7 +1,7 @@
 <script>
 	import { onDestroy } from 'svelte'
 	import { writable } from 'svelte/store'
-	import * as dimensionamento from '../stores/dimensionamento'
+	import * as dimensionamento from '../../stores/dimensionamento'
 
 	/** Store para mediar o set da cidade */
 	const cidade = writable(0)

@@ -20,6 +20,7 @@ export function setEstado(estado) {
  */
 export function setCidade(cidade) {
 	update(v => Object.assign(v, { cidade }))
+	next()
 }
 
 /**
@@ -28,6 +29,7 @@ export function setCidade(cidade) {
  */
 export function setConcessionaria(concessionaria) {
 	update(v => Object.assign(v, { concessionaria }))
+	next()
 }
 
 /**
@@ -36,10 +38,9 @@ export function setConcessionaria(concessionaria) {
  */
 export function setPreco(preco) {
 	update(v => Object.assign(v, { preco }))
+	next()
 }
 
 subscribe(v => {
 	console.log('store updated:', v)
-	if (JSON.stringify(v) == '{}') return
-	next()
 })
