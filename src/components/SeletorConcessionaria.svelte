@@ -3,7 +3,7 @@
 	import FancyInput from './FancyInput.svelte'
 
 	function setConcessionaria(event) {
-		dimensionamento.setConcessionaria(event.target.concessionaria.value || 'não sei')
+		dimensionamento.setConcessionaria(event.target.concessionaria.value)
 	}
 </script>
 
@@ -17,7 +17,6 @@
 		color: #ffffff;
 		text-transform: uppercase;
 		height: 50px;
-		line-height: 50px;
 		font-size: 14px;
 		letter-spacing: .13em;
 		text-align: center;
@@ -36,10 +35,10 @@
 
 <div class="input">
 	<form on:submit|preventDefault={setConcessionaria}>
-		<FancyInput id="concessionaria" required={false}>
+		<FancyInput id="concessionaria">
 			Insira sua concessionária de energia elétrica
 		</FancyInput>
-		
+
 		<button type="submit">Enviar</button>
 	</form>
 </div>

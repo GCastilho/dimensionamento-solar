@@ -1,3 +1,16 @@
+<script>
+	import Chart from 'svelte-frappe-charts'
+
+	let data = {
+		labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+		datasets: [
+			{
+				values: [10, 12, 3, 9, 8, 15, 9, 2, 7, 2, 8, 7]
+			}
+		]
+	}
+</script>
+
 <style>
 	div {
 		max-width: 600px;
@@ -15,9 +28,14 @@
 		seguintes características básicas
 	</h3>
 	<p>
+		Produção mensal (KWh) <br>
 		Potência de pico: XXXXXX kW<br>
+		Potência instalada: XXXXXX kW<br>
 		Número aproximado de painéis solares: XX<br>
 		Número aproximado de inversores: XX<br>
 		Retorno do investimento: XX anos<br>
+		Área mínima XX m²<br>
 	</p>
 </div>
+
+<Chart data={data} type="bar" />

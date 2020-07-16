@@ -2,7 +2,7 @@
 	export let id
 	export let type = 'text'
 	export let placeholder = ' '
-	export let required = true
+	export let required = false
 </script>
 
 <style>

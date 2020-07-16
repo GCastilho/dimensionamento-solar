@@ -51,9 +51,9 @@
 		com toda a segurança!
 	</p>
 
-	<FancyInput type="text" id="name">Informe seu nome</FancyInput>
-	<FancyInput type="email" id="email">Informe seu email</FancyInput>
-	<FancyInput type="tel" id="telefone">Informe seu telefone</FancyInput>
+	<FancyInput required type="text" id="name">Informe seu nome</FancyInput>
+	<FancyInput required type="email" id="email">Informe seu email</FancyInput>
+	<FancyInput required type="tel" id="telefone">Informe seu telefone</FancyInput>
 
 	<button type="submit">Enviar</button>
 </form>
