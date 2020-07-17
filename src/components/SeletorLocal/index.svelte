@@ -12,6 +12,11 @@
 		align-items: center;
 		justify-content: center;
 	}
+
+	.seletor-local > div > div {
+		margin-left: 15px;
+		margin-right: 15px;
+	}
 </style>
 
 <div class="seletor-local" transition:fade>

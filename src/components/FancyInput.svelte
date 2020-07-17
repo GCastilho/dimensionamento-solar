@@ -44,11 +44,13 @@
 	}
 
 	label {
+		font-size: 18px;
+		margin-top: 15px;
+		margin-left: 1px;
 		pointer-events: none;
 		position: absolute;
 		top: 0;
 		left: 0;
-		margin-top: 13px;
 		transition: all .3s ease-out;
 		-webkit-transition: all .3s ease-out;
 		-moz-transition: all .3s ease-out;

@@ -50,7 +50,7 @@
 	}
 </style>
 
-<h2>Muito bem. Agora precisamos saber o nome da sua cidade</h2>
+<h2>Por favor informe sua cidade</h2>
 <select bind:value="{$cidade}">
 	<option value="">Cidade</option>
 	{#await lista_cidade}

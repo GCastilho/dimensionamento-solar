@@ -1,5 +1,6 @@
 <script>
 	import { setPreco } from '../stores/dimensionamento'
+	import FancyInput from './FancyInput.svelte'
 	export let ultimaConta
 
 	function handleSubmit(event) {
@@ -9,11 +10,23 @@
 </script>
 
 <style>
+	form {
+		max-width: 600px;
+		margin: auto;
+		display: grid;
+		grid-template-columns: 8fr 2fr;
+		margin-bottom: 20px;
+	}
+
 	form > * {
 		height: 40px;
 		margin-left: 5px;
 		margin-top: 5px;
 		font-size: larger;
+	}
+
+	div {
+		margin: auto;
 	}
 
 	button {
@@ -26,6 +39,9 @@
 		text-transform: uppercase;
 		letter-spacing: .13em;
 		text-align: center;
+		grid-column-start: 1;
+		grid-column-end: 3;
+		margin: auto;
 	}
 </style>
 
@@ -36,8 +52,13 @@
 </p>
 
 <form on:submit|preventDefault={handleSubmit}>
-	<label for="ultimaConta">Valor da sua última conta:</label>
-	<input type="text" id="ultimaConta">
+	<FancyInput id="ultimaConta">Valor da sua última conta:</FancyInput>
+	<div>
+		<input type="radio" id="reais" name="unit" value="reais" checked>
+		<label for="reais">R$</label>
+		<input type="radio" id="kwh" name="unit" value="kwh">
+		<label for="kwh">KWh</label>
+	</div>
 
 	<button>Enviar</button>
 </form>
