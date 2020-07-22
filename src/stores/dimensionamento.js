@@ -16,20 +16,24 @@ export function setEstado(estado) {
 
 /**
  * Seta um novo códulo para a cidade
- * @param {number} cidade O código da cidade segundo o IBGE
+ * @param {number} cidade O objeto da cidade retornado do IBGE
  */
 export function setCidade(cidade) {
-	fetch('api/location/municipios.json')
+	const query = {
+		format: 'json',
+		country: 'BR',
+		state: cidade.microrregiao.mesorregiao.UF.sigla,
+		city: cidade.nome
+	}
+	delete cidade.microrregiao // Não será mais utilizado
+	fetch(`https://nominatim.openstreetmap.org/search/?${new URLSearchParams(query).toString()}`)
 		.then(res => res.json())
-		.then(data => data.find(v => v.id == cidade))
-		.then(({ latitude, longitude }) => {
-			update(v => Object.assign(v, { cidade, location: { latitude, longitude } }))
-		})
-		.catch(err => {
-			console.error(err)
-			update(v => Object.assign(v, { cidade }))
+		.then(data => {
+			cidade.lat = +data[0].lat
+			cidade.lon = +data[0].lon
 		})
 		.finally(() => {
+			update(v => Object.assign(v, { cidade }))
 			next()
 		})
 }
@@ -55,11 +59,3 @@ export function setPreco(preco) {
 subscribe(v => {
 	console.log('store updated:', v)
 })
-
-setEstado(35)
-/*
-setCidade(3533403)
-setConcessionaria('')
-setPreco(0)
-next()
-*/

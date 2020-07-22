@@ -57,7 +57,7 @@
 		<option value="">buscando...</option>
 	{:then municipios}
 		{#each municipios as municipio}
-			<option value="{municipio.id}">{municipio.nome}</option>
+			<option value="{municipio}">{municipio.nome}</option>
 		{/each}
 	{:catch err}
 		<option value="">Erro buscando municípios</option>
