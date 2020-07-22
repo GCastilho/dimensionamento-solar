@@ -19,8 +19,19 @@ export function setEstado(estado) {
  * @param {number} cidade O código da cidade segundo o IBGE
  */
 export function setCidade(cidade) {
-	update(v => Object.assign(v, { cidade }))
-	next()
+	fetch('api/location/municipios.json')
+		.then(res => res.json())
+		.then(data => data.find(v => v.id == cidade))
+		.then(({ latitude, longitude }) => {
+			update(v => Object.assign(v, { cidade, location: { latitude, longitude } }))
+		})
+		.catch(err => {
+			console.error(err)
+			update(v => Object.assign(v, { cidade }))
+		})
+		.finally(() => {
+			next()
+		})
 }
 
 /**
@@ -44,3 +55,11 @@ export function setPreco(preco) {
 subscribe(v => {
 	console.log('store updated:', v)
 })
+
+setEstado(35)
+/*
+setCidade(3533403)
+setConcessionaria('')
+setPreco(0)
+next()
+*/

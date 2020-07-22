@@ -21,10 +21,6 @@
 		text-align: center;
 		margin: 0 auto;
 	}
-
-	.container > * {
-		margin-bottom: 70px;
-	}
 </style>
 
 <div class="container">
