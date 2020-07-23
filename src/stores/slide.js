@@ -10,11 +10,17 @@ export { subscribe }
 export const next = () => update(v => v + 1)
 
 /** Decrementa o contador de slides */
-export const previous = () => update(v => v - 1)
+export const previous = () => history.back()
 
 /** Reseta o contador de slides */
 export const reset = () => set(0)
 
 subscribe(v => {
 	console.log('slide counter updated:', v)
+	if (!v || v == history.state) return
+	history.pushState(v, `slide ${v}`)
+})
+
+window.addEventListener('popstate', () => {
+	set(history.state || 0)
 })

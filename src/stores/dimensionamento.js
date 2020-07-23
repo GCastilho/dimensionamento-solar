@@ -36,7 +36,7 @@ export function setCidade(cidade) {
 			update(v => Object.assign(v, { cidade }))
 			next()
 		})
-		// Seta os dados de irradiação da cidade de acordo com o Global Solar Atlas
+		// Colhe os dados de irradiação da cidade de acordo com o Global Solar Atlas
 		.then(() => fetch(`https://api.globalsolaratlas.info/data/lta?loc=${cidade.lat},${cidade.lon}`))
 		.then(res => res.json())
 		.then(data => {

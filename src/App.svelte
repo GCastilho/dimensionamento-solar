@@ -17,12 +17,23 @@
 </script>
 
 <style>
-	.container {
+	div {
 		text-align: center;
-		margin: 0 auto;
+	}
+
+	button {
+		font-size: 30px;
+		background-color: unset;
+		border: unset;
+		border-radius: 5px;
+	}
+
+	button:active {
+		background-color: #66ccff10;
 	}
 </style>
 
-<div class="container">
+<button class:hidden={!$slide} on:click="{slide.previous}">&lt;</button>
+<div>
 	<svelte:component this={slides[$slide]} />
 </div>
