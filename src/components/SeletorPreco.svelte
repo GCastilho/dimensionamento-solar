@@ -1,10 +1,13 @@
 <script>
 	import { setPreco } from '../stores/dimensionamento'
 	import FancyInput from './FancyInput.svelte'
-	export let ultimaConta
+
+	let unit = 'reais'
+	$: inputMessage = unit == 'reais' ?
+		'Valor da sua última conta' : 'Quantos kWh quer gerar?'
 
 	function handleSubmit(event) {
-		ultimaConta = event.target.ultimaConta.value
+		console.log(event.target.ultimaConta.value)
 		setPreco(1)
 	}
 </script>
@@ -52,11 +55,11 @@
 </p>
 
 <form on:submit|preventDefault={handleSubmit}>
-	<FancyInput id="ultimaConta">Valor da sua última conta:</FancyInput>
+	<FancyInput id="ultimaConta">{inputMessage}</FancyInput>
 	<div>
-		<input type="radio" id="reais" name="unit" value="reais" checked>
+		<input type="radio" id="reais" bind:group={unit} value="reais">
 		<label for="reais">R$</label>
-		<input type="radio" id="kwh" name="unit" value="kwh">
+		<input type="radio" id="kwh" bind:group={unit} value="kwh">
 		<label for="kwh">KWh</label>
 	</div>
 
