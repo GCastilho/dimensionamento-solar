@@ -7,6 +7,11 @@
 	import FormDadosCliente from './components/FormDadosCliente.svelte'
 	import Resultado from './components/Resultado.svelte'
 
+	let fowardable = false
+	slide.subscribe(v => {
+		fowardable = slide.getSlidesVisited() > v
+	})
+
 	const slides = [
 		BoasVindas,
 		SeletorConcessionaria,
@@ -33,7 +38,8 @@
 	}
 </style>
 
-<button class:hidden={!$slide} on:click="{slide.previous}">&lt;</button>
+<button on:click="{slide.previous}" class:hidden={!$slide}>&lt;</button>
 <div>
 	<svelte:component this={slides[$slide]} />
 </div>
+<button on:click="{slide.next}" disabled={!fowardable}>&gt;</button>

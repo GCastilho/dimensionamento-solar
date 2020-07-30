@@ -15,10 +15,17 @@ export const previous = () => history.back()
 /** Reseta o contador de slides */
 export const reset = () => set(0)
 
+/** Contador absoluto do valor do maior slide já visitado */
+let slidesVisited = 0
+
+/** Retorna o contador absoluto de slides */
+export const getSlidesVisited = () => slidesVisited
+
 subscribe(v => {
 	console.log('slide counter updated:', v)
 	if (!v || v == history.state) return
 	history.pushState(v, `slide ${v}`)
+	if (v > slidesVisited) slidesVisited = v
 })
 
 window.addEventListener('popstate', () => {
