@@ -9,7 +9,12 @@
 
 	/** Store local com o id do estado da store de dimensionamento */
 	const estado = writable(0)
-	$: estado.set($dimensionamento.estado?.id)
+	/*
+	 * Replace following line with
+	 * $: estado.set($dimensionamento.estado?.id)
+	 * once svelte/#1972 confirms nullish coalescing support for build
+	 */
+	$: if ($dimensionamento.estado) estado.set($dimensionamento.estado.id)
 
 	async function fetchMunicipios(estado_id) {
 		const res = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${estado_id}/municipios`)
