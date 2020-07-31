@@ -1,7 +1,7 @@
 <script>
 	import cliente from '../stores/cliente'
 	import { next } from '../stores/slide'
-	import FancyInput from './FancyInput.svelte'
+	import FancyInput from '../components/FancyInput.svelte'
 
 	function handleSubmit(event) {
 		$cliente = {

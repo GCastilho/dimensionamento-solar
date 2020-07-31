@@ -1,6 +1,6 @@
 <script>
 	import { setPreco } from '../stores/dimensionamento'
-	import FancyInput from './FancyInput.svelte'
+	import FancyInput from '../components/FancyInput.svelte'
 
 	let unit = 'reais'
 	$: inputMessage = unit == 'reais' ?

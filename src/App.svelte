@@ -1,11 +1,11 @@
 <script>
 	import { fade } from 'svelte/transition'
 	import * as slide from './stores/slide'
-	import BoasVindas from './components/SeletorLocal/index.svelte'
-	import SeletorConcessionaria from './components/SeletorConcessionaria.svelte'
-	import SeletorPreco from './components/SeletorPreco.svelte'
-	import FormDadosCliente from './components/FormDadosCliente.svelte'
-	import Resultado from './components/Resultado.svelte'
+	import BoasVindas from './slides/SeletorLocal/index.svelte'
+	import SeletorConcessionaria from './slides/SeletorConcessionaria.svelte'
+	import SeletorPreco from './slides/SeletorPreco.svelte'
+	import FormDadosCliente from './slides/FormDadosCliente.svelte'
+	import Resultado from './slides/Resultado.svelte'
 
 	let fowardable = false
 	slide.subscribe(v => {
