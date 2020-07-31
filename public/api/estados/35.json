@@ -1,0 +1,14 @@
+{
+  "codigo_uf": 35,
+  "uf": "SP",
+  "nome": "São Paulo",
+  "distribuidoras": [
+    "ELEKTRO (SP)",
+    "Energisa Sul-Sudeste",
+    "CPFL Santa Cruz Nova",
+    "CPFL Paulista",
+    "EDP SP",
+    "ENEL SP",
+    "CPFL Piratininga"
+  ]
+}

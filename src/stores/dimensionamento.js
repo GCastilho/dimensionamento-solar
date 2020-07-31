@@ -11,7 +11,18 @@ export { subscribe }
  * @param {object} estado O objeto to estado emitido pelo mapa
  */
 export function setEstado(estado) {
-	update(v => Object.assign(v, { estado }))
+	fetch(`api/estados/${estado.id}.json`)
+		.then(res => res.json())
+		.then(data => estado.distribuidoras = data.distribuidoras)
+		.then(update(v => Object.assign(v, { estado })))
+}
+
+/** Retorna o objeto do estado atual */
+export function getEstado() {
+	let estado = {}
+	const unsubscribe = subscribe(v => estado = v.estado)
+	unsubscribe()
+	return estado
 }
 
 /**
@@ -59,9 +70,17 @@ export function setCidade(cidade) {
  * Seta um novo valor para a concessionária
  * @param {string} concessionaria O nome da concessionária
  */
-export function setConcessionaria(concessionaria) {
+export function setDistribuidora(concessionaria) {
 	update(v => Object.assign(v, { concessionaria }))
 	next()
+}
+
+/** Retorna a string da concessionária atual */
+export function getDistribuidora() {
+	let concessionaria = ''
+	const unsubscribe = subscribe(v => concessionaria = v.concessionaria)
+	unsubscribe()
+	return concessionaria || ''
 }
 
 /**
