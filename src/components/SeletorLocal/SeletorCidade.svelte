@@ -4,16 +4,14 @@
 	import * as dimensionamento from '../../stores/dimensionamento'
 
 	/** Store para mediar o set da cidade */
-	const cidade = writable(0)
-	cidade.subscribe(id => id && id != $dimensionamento.cidade && dimensionamento.setCidade(id))
+	const cidade = writable()
+	cidade.subscribe(id => id && dimensionamento.setCidade(id))
 
-	/** Store para mediar atualizações do estado */
+	/** Store local com o id do estado da store de dimensionamento */
 	const estado = writable(0)
-	estado.subscribe(id => id && id != $dimensionamento.estado && dimensionamento.setEstado(id))
-	$: estado.set($dimensionamento.estado)
+	$: estado.set($dimensionamento.estado?.id)
 
 	async function fetchMunicipios(estado_id) {
-		$cidade = ''
 		const res = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${estado_id}/municipios`)
 		return await res.json()
 	}

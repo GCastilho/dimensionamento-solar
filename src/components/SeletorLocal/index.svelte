@@ -25,7 +25,7 @@
 	<div>
 		<div>
 			<h2>Qual o seu estado?</h2>
-			<Mapa on:click="{event => dimensionamento.setEstado(event.detail.id)}" />
+			<Mapa on:click="{event => dimensionamento.setEstado(event.detail)}" />
 		</div>
 		{#if $dimensionamento.estado}
 			<div>

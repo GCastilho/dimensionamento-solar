@@ -8,7 +8,7 @@ export { subscribe }
 
 /**
  * Seta um novo valor para o estado
- * @param {number} estado O ID do estado segundo o IBGE
+ * @param {object} estado O objeto to estado emitido pelo mapa
  */
 export function setEstado(estado) {
 	update(v => Object.assign(v, { estado }))

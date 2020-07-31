@@ -29,7 +29,7 @@
 	</h3>
 	<p>
 		Produção mensal (KWh) <br>
-		Potência de pico: XXXXXX kW<br>
+		Potência de pico: XXXXXX kWp<br>
 		Potência instalada: XXXXXX kW<br>
 		Número aproximado de painéis solares: XX<br>
 		Número aproximado de inversores: XX<br>
