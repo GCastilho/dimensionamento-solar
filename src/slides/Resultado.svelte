@@ -28,13 +28,14 @@
 		seguintes características básicas
 	</h3>
 	<p>
-		Produção mensal (KWh) <br>
-		Potência de pico: XXXXXX kWp<br>
-		Potência instalada: XXXXXX kW<br>
-		Número aproximado de painéis solares: XX<br>
+		Produção mensal: xxxxxxx kWh/mês<br>
+		Potência instalada: XXXXXX kWp<br>
+		Quantidade aproximada de painéis solares: XX<br>
 		Número aproximado de inversores: XX<br>
+		<br>
+		Economia anual: R$ xxxxxxxxx<br>
 		Retorno do investimento: XX anos<br>
-		Área mínima XX m²<br>
+		Área mínima XX m²
 	</p>
 </div>
 

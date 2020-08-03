@@ -51,7 +51,7 @@
 <h2>Seu custo atual:</h2>
 
 <p>
-	Verificamos nosso banco de dados e percebemos que você paga R$ 1,00/kWh (ou seja, R$1,00 por cada quilowatt-hora consumido na sua residência). Isso é muito dinheiro! Se você tiver sua conta de luz em mãos, verifique se o valor que encontramos em nosso banco de dados está correto. Se você preferir, digite no campo abaixo o valor atualizado com sua última conta de luz.
+	Verificamos nosso banco de dados e percebemos que você paga R$ 1,00/kWh (ou seja, R$1,00 por cada quilowatt-hora consumido na sua residência). Isso é muito dinheiro! Se você tiver sua conta de energia em mãos verifique se o valor que encontramos em nosso banco de dados está correto. Se você preferir, digite no campo abaixo o valor atualizado com sua última conta de luz.
 </p>
 
 <form on:submit|preventDefault={handleSubmit}>

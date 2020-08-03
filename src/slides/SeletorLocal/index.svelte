@@ -1,5 +1,4 @@
 <script>
-	import { fade } from 'svelte/transition'
 	import * as dimensionamento from '../../stores/dimensionamento'
 	import Mapa from './mapa.svelte'
 	import SeletorCidade from './SeletorCidade.svelte'
@@ -19,7 +18,7 @@
 	}
 </style>
 
-<div class="seletor-local" transition:fade>
+<div class="seletor-local">
 	<h1>Olá! Bem-vindo(a) ao simulador do Canal Solar</h1>
 	<p>Nós vamos te ajudar a economizar na sua conta de energia. Nossa ferramenta gratuita vai analisar sua conta de energia e dimensionar o sistema de energia solar ideal para você.</p>
 	<div>
