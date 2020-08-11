@@ -89,4 +89,8 @@
 <div bind:this={div} class:slidable>
 	<svelte:component this={slides[slideCounter]} />
 </div>
-<button on:click="{slide.next}" disabled={!fowardable}>&gt;</button>
+<button
+	on:click="{slide.next}"
+	class:hidden={$slide + 1 >= slides.length}
+	disabled={!fowardable}
+>&gt;</button>
