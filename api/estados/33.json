@@ -1,0 +1,10 @@
+{
+  "codigo_uf": 33,
+  "uf": "RJ",
+  "nome": "Rio de Janeiro",
+  "distribuidoras": [
+    "ENEL RJ",
+    "Energisa Nova Friburgo (ENF)",
+    "LIGHT"
+  ]
+}
